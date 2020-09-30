@@ -13,8 +13,16 @@ function Potato() {
 
   return (
     // <div style={style}>
+    // out of JSX
     <div className='Potato'>
+      {/* start of JSX */}
+      <h1
+        sth='afdsds' // comments in a tag
+      >
+        comments in JSX
+      </h1>
       <h2>I love {name}</h2>
+      {/* end of JSX */}
     </div>
   );
 }
