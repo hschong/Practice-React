@@ -1,7 +1,8 @@
 import React from 'react';
 
 function Potato() {
-  return <h2>I love potato</h2>;
+  const name = 'potato';
+  return <h2>I love {name}</h2>;
 }
 
 export default Potato;
