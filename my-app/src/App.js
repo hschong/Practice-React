@@ -3,6 +3,12 @@ import Potato from './Potato';
 import logo from './logo.svg';
 import './App.css';
 
+// function Food(props) {
+function Food({ fav }) {
+  // console.log(props.fav);
+  return <h1>I like {fav}</h1>;
+}
+
 function App() {
   return (
     <div className='App'>
@@ -19,8 +25,11 @@ function App() {
         >
           Learn React
         </a>
-        <h1>안녕하세요 리액트</h1>
+        <h1>React's components</h1>
         <Potato />
+        <Food fav='kimchi' />
+        <Food fav='samgyupsal' />
+        <Food fav='Jjukumi' />
       </header>
     </div>
   );
