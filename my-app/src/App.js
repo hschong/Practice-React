@@ -5,14 +5,17 @@ import './App.css';
 
 const foodsILike = [
   {
+    id: 1,
     name: 'kimbab',
     image: 'http://swisshansik.files.wordpress.com/2011/09/kimbap-2.jpg',
   },
   {
+    id: 2,
     name: 'tteok-bokki',
     image: 'https://t1.daumcdn.net/cfile/tistory/217BA24450D1717633',
   },
   {
+    id: 3,
     name: 'bibimbap',
     image: 'https://i.ytimg.com/vi/U_djLM9Z-qs/maxresdefault.jpg',
   },
@@ -47,7 +50,7 @@ function App() {
         </a>
         <Potato /> */}
         {foodsILike.map((food) => (
-          <Food foodName={food.name} foodPicture={food.image} />
+          <Food key={food.id} foodName={food.name} foodPicture={food.image} />
         ))}
       </header>
     </div>
