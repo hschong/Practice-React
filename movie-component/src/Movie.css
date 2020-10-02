@@ -1,0 +1,11 @@
+body {
+  background-color: bisque;
+}
+
+.movie {
+  background: bisque;
+  color: brown;
+  font-size: 20px;
+  padding: 1rem;
+  font-weight: 600;
+}
