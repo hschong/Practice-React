@@ -12,7 +12,8 @@ function App() {
       <Navigation /> {/* <Navigation /> must be in HashRouter */}
       <Route path='/' exact={true} component={Home} />
       <Route path='/about' component={About} />
-      <Route path='/movie-detail' component={Detail} />
+      {/* <Route path='/movie-detail' component={Detail} /> */}
+      <Route path='/movie/:id' component={Detail} />
     </HashRouter>
     // <footer>
     // is need a fragment to render both at the same time.
