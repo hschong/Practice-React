@@ -1,6 +1,10 @@
 import React from 'react';
 
 class Detail extends React.Component {
+  static defaultProps = {
+    title: 'no title',
+  };
+
   componentDidMount() {
     const { location, history } = this.props;
     if (location.state === undefined) {
@@ -12,7 +16,8 @@ class Detail extends React.Component {
     if (location.state) {
       return <span>{location.state.title}</span>;
     } else {
-      return null;
+      return <span>{this.props.title}</span>;
+      // return null;
     }
   }
 }
