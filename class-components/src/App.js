@@ -30,10 +30,6 @@ class App extends React.Component {
     console.log('componentDidMount()');
   }
 
-  componentDidUpdate() {
-    console.log('componentDidUpdate()');
-  }
-
   render() {
     console.log('render()');
     return (

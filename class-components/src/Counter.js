@@ -17,6 +17,21 @@ class Counter extends Component {
     return null;
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    if (nextProps.count % 2 === 0) return false;
+    return true;
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log('componentDidUpdate() in Counter');
+    console.log(
+      'prevProps, prevState, snapshot',
+      prevProps,
+      prevState,
+      snapshot
+    );
+  }
+
   render() {
     return (
       <div>
