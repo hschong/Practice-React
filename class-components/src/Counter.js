@@ -32,6 +32,10 @@ class Counter extends Component {
     );
   }
 
+  componentWillUnmount() {
+    console.log('Good Bye');
+  }
+
   render() {
     return (
       <div>

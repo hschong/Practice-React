@@ -4,6 +4,7 @@ import Counter from './Counter';
 class App extends React.Component {
   state = {
     count: 0,
+    error: false,
   };
 
   constructor(props) {
@@ -26,17 +27,26 @@ class App extends React.Component {
     }));
   };
 
-  componentDidMount() {
-    console.log('componentDidMount()');
+  // for child components
+  componentDidCatch(error, info) {
+    console.log(error, info);
+    this.setState({ error: true });
   }
 
   render() {
     console.log('render()');
+    if (this.state.error) {
+      return <div>An error happened</div>;
+    }
     return (
       <div>
-        <Counter count={this.state.count} />
-        <button onClick={this.increase}>increase</button>
-        <button onClick={this.decrease}>decrease</button>
+        {this.state.count < 10 && (
+          <div>
+            <Counter count={this.state.count} />
+            <button onClick={this.increase}>increase</button>
+            <button onClick={this.decrease}>decrease</button>
+          </div>
+        )}
       </div>
     );
   }
