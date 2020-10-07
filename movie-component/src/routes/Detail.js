@@ -1,6 +1,7 @@
 import React from 'react';
 
 class Detail extends React.Component {
+  // ES6+ style
   static defaultProps = {
     title: 'no title',
   };
@@ -21,5 +22,9 @@ class Detail extends React.Component {
     }
   }
 }
+// old style
+// Detail.defaultProps = {
+//   title: 'no title',
+// };
 
 export default Detail;
