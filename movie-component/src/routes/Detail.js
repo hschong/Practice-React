@@ -12,14 +12,15 @@ class Detail extends React.Component {
       history.push('/');
     }
   }
+
   render() {
     const { location } = this.props;
     if (location.state) {
       return <span>{location.state.title}</span>;
-    } else {
-      return <span>{this.props.title}</span>;
-      // return null;
     }
+
+    // nothing to render
+    return null;
   }
 }
 

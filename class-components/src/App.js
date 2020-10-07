@@ -1,18 +1,29 @@
 import React from 'react';
+import Counter from './Counter';
 
 class App extends React.Component {
   state = {
     count: 0,
   };
 
-  add = () => {
-    this.setState((current) => ({ count: current.count + 1 }));
-    console.log('add');
+  constructor(props) {
+    super(props);
+    console.log('constructor');
+    console.log('props: ', props);
+  }
+
+  increase = () => {
+    console.log('increase: count = ', this.state.count);
+    this.setState((current) => ({
+      count: current.count + 1,
+    }));
   };
 
-  minus = () => {
-    this.setState((current) => ({ count: current.count - 1 }));
-    console.log('minus');
+  decrease = () => {
+    console.log('decrease: count = ', this.state.count);
+    this.setState((current) => ({
+      count: current.count - 1,
+    }));
   };
 
   componentDidMount() {
@@ -27,9 +38,9 @@ class App extends React.Component {
     console.log('render()');
     return (
       <div>
-        <h1>The number is: {this.state.count}</h1>
-        <button onClick={this.add}>Add</button>
-        <button onClick={this.minus}>Minus</button>
+        <Counter count={this.state.count} />
+        <button onClick={this.increase}>increase</button>
+        <button onClick={this.decrease}>decrease</button>
       </div>
     );
   }
