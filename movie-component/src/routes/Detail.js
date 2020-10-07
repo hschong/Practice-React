@@ -22,6 +22,7 @@ class Detail extends React.Component {
     }
   }
 }
+
 // old style
 // Detail.defaultProps = {
 //   title: 'no title',
