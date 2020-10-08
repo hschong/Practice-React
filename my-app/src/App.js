@@ -1,7 +1,7 @@
 import React from 'react';
-import Potato from './Potato';
 import Foods from './Foods';
 import './App.css';
+import PhoneForm from './components/PhoneForm';
 
 const foodsILike = [
   {
@@ -28,15 +28,15 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        <Potato />
-        {foodsILike.map((food) => (
+        {/* {foodsILike.map((food) => (
           <Foods
             key={food.id}
             name={food.name}
             image={food.image}
             rating={food.rating}
           />
-        ))}
+        ))} */}
+        <PhoneForm />
       </header>
     </div>
   );
