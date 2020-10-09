@@ -25,8 +25,14 @@ const foodsILike = [
 ];
 
 export default class App extends React.Component {
+  state = {
+    information: [],
+  };
+
   handleCreate = (data) => {
-    console.log(data);
+    this.setState({
+      information: this.state.information.concat(data),
+    });
   };
 
   render() {
@@ -42,6 +48,7 @@ export default class App extends React.Component {
           />
         ))} */}
           <PhoneForm onCreate={this.handleCreate} />
+          {JSON.stringify(this.state.information)}
         </header>
       </div>
     );
