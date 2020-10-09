@@ -12,9 +12,14 @@ export default class PhoneForm extends Component {
     });
   };
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.onCreate(this.state);
+  };
+
   render() {
     return (
-      <div>
+      <form onSubmit={this.handleSubmit}>
         <p>PhoneForm</p>
         {/* <input onChange={this.handleChange} value={this.state.name} /> */}
         <input
@@ -29,9 +34,11 @@ export default class PhoneForm extends Component {
           onChange={this.handleChange}
           value={this.state.number}
         />
-        {this.state.name}
-        {this.state.number}
-      </div>
+        <button type='submit'>register</button>
+        <div>
+          {this.state.name} {this.state.number}
+        </div>
+      </form>
     );
   }
 }

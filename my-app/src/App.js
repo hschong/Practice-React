@@ -24,11 +24,16 @@ const foodsILike = [
   },
 ];
 
-function App() {
-  return (
-    <div className='App'>
-      <header className='App-header'>
-        {/* {foodsILike.map((food) => (
+export default class App extends React.Component {
+  handleCreate = (data) => {
+    console.log(data);
+  };
+
+  render() {
+    return (
+      <div className='App'>
+        <header className='App-header'>
+          {/* {foodsILike.map((food) => (
           <Foods
             key={food.id}
             name={food.name}
@@ -36,10 +41,9 @@ function App() {
             rating={food.rating}
           />
         ))} */}
-        <PhoneForm />
-      </header>
-    </div>
-  );
+          <PhoneForm onCreate={this.handleCreate} />
+        </header>
+      </div>
+    );
+  }
 }
-
-export default App;
