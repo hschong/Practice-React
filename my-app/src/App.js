@@ -25,6 +25,9 @@ const foodsILike = [
 ];
 
 export default class App extends React.Component {
+  id = 0; // no need to render
+
+  // need to render
   state = {
     information: [],
   };
@@ -32,7 +35,12 @@ export default class App extends React.Component {
   handleCreate = (data) => {
     const { information } = this.state;
     this.setState({
-      information: information.concat(data),
+      information: information.concat({
+        id: this.id++,
+        ...data,
+        // name: data.name,
+        // number: data.number,
+      }),
     });
   };
 
