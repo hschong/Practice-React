@@ -30,8 +30,9 @@ export default class App extends React.Component {
   };
 
   handleCreate = (data) => {
+    const { information } = this.state;
     this.setState({
-      information: this.state.information.concat(data),
+      information: information.concat(data),
     });
   };
 

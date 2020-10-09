@@ -15,6 +15,7 @@ export default class PhoneForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.onCreate(this.state);
+    this.setState({ name: '', number: '' });
   };
 
   render() {
@@ -35,9 +36,6 @@ export default class PhoneForm extends Component {
           value={this.state.number}
         />
         <button type='submit'>register</button>
-        <div>
-          {this.state.name} {this.state.number}
-        </div>
       </form>
     );
   }
