@@ -1,8 +1,8 @@
 import React from 'react';
 import Foods from './Foods';
 import './App.css';
-import PhoneForm from './components/PhoneForm';
-import PhoneNumberList from './components/PhoneNumberList';
+import PhoneNumberForm from './components/PhoneNumberForm';
+import PhoneBook from './components/PhoneBook';
 
 const foodsILike = [
   {
@@ -30,25 +30,25 @@ export default class App extends React.Component {
 
   // need to render
   state = {
-    information: [],
+    phoneBook: [],
   };
 
-  handleCreate = (data) => {
-    const { information } = this.state;
+  handleCreate = (formData) => {
+    const { phoneBook } = this.state;
     this.setState({
-      information: information.concat({
+      phoneBook: phoneBook.concat({
         id: this.id++,
-        ...data,
-        // name: data.name,
-        // number: data.number,
+        ...formData,
+        // name: formData.name,
+        // number: formData.number,
       }),
     });
   };
 
   handleDelete = (id) => {
-    const {information} = this.state
+    const {phoneBook} = this.state
     this.setState({
-      information: information.filter(info => info.id !== id)
+      phoneBook: phoneBook.filter(info => info.id !== id)
     })
   }
 
@@ -64,10 +64,10 @@ export default class App extends React.Component {
             rating={food.rating}
           />
         ))} */}
-          <PhoneForm onRegister={this.handleCreate} />
-          {/* {JSON.stringify(this.state.information)} */}
-          <PhoneNumberList 
-            data={this.state.information} 
+          <PhoneNumberForm onRegister={this.handleCreate} />
+          {/* {JSON.stringify(this.state.phoneBook)} */}
+          <PhoneBook 
+            phoneBook={this.state.phoneBook} 
             onRemove={this.handleDelete}
           />
         </header>

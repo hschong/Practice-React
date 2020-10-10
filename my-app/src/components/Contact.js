@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
-export default class PhoneNumber extends Component {
+export default class Contact extends Component {
     handleRemove = () => {
-        const {info, onRemove} = this.props
-        onRemove(info.id)
+        const {contact, onRemove} = this.props
+        onRemove(contact.id)
     }
 
     render() {
-        const {name, number} = this.props.info
+        const {name, number} = this.props.contact
         const style = {
             border: '1px solid black',
             padding: '8px',

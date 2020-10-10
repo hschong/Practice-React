@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class PhoneForm extends Component {
+export default class PhoneNumberForm extends Component {
   state = {
     name: '',
     number: '',
@@ -8,7 +8,11 @@ export default class PhoneForm extends Component {
 
   handleChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value,
+      // append the new value to the array
+      [e.target.name]: e.target.value, 
+      
+      // replace the previous value with the new value
+      // e.target.name: e.target.value 
     });
   };
 
@@ -21,8 +25,7 @@ export default class PhoneForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <p>PhoneForm</p>
-        {/* <input onChange={this.handleChange} value={this.state.name} /> */}
+        <p>PhoneNumberForm</p>
         <input
           name='name'
           placeholder='name'
