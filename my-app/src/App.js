@@ -33,7 +33,7 @@ export default class App extends React.Component {
     information: [],
   };
 
-  handleCreate = (data) => {
+  handleRegister = (data) => {
     const { information } = this.state;
     this.setState({
       information: information.concat({
@@ -44,6 +44,13 @@ export default class App extends React.Component {
       }),
     });
   };
+
+  handleRemove = (id) => {
+    const {information} = this.state
+    this.setState({
+      information: information.filter(info => info.id !== id)
+    })
+  }
 
   render() {
     return (
@@ -57,9 +64,12 @@ export default class App extends React.Component {
             rating={food.rating}
           />
         ))} */}
-          <PhoneForm onCreate={this.handleCreate} />
+          <PhoneForm onRegister={this.handleRegister} />
           {/* {JSON.stringify(this.state.information)} */}
-          <PhoneNumberList data={this.state.information} />
+          <PhoneNumberList 
+            data={this.state.information} 
+            onRemove={this.handleRemove}
+          />
         </header>
       </div>
     );

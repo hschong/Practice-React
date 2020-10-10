@@ -7,10 +7,16 @@ export default class PhoneNumberList extends Component {
     }
 
     render() {
-        const {data} = this.props
+        const {data, onRemove} = this.props
         const list = data.map(
-            info => (<PhoneNumber info={info} key={info.id} />)
+            info => (
+                <PhoneNumber 
+                    onRemove={onRemove} 
+                    info={info} 
+                    key={info.id} 
+                />)
         )
+        
         return (
             <div>
                 {list}
