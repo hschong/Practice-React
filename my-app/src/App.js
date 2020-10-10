@@ -2,6 +2,7 @@ import React from 'react';
 import Foods from './Foods';
 import './App.css';
 import PhoneForm from './components/PhoneForm';
+import PhoneNumberList from './components/PhoneNumberList';
 
 const foodsILike = [
   {
@@ -57,7 +58,8 @@ export default class App extends React.Component {
           />
         ))} */}
           <PhoneForm onCreate={this.handleCreate} />
-          {JSON.stringify(this.state.information)}
+          {/* {JSON.stringify(this.state.information)} */}
+          <PhoneNumberList data={this.state.information} />
         </header>
       </div>
     );
