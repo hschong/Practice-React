@@ -1,29 +1,7 @@
 import React from 'react';
-import Foods from './Foods';
 import './App.css';
 import PhoneNumberForm from './components/PhoneNumberForm';
 import PhoneBook from './components/PhoneBook';
-
-const foodsILike = [
-  {
-    id: 1,
-    name: 'kimbab',
-    image: 'http://swisshansik.files.wordpress.com/2011/09/kimbap-2.jpg',
-    rating: 4.5,
-  },
-  {
-    id: 2,
-    name: 'tteok-bokki',
-    image: 'https://t1.daumcdn.net/cfile/tistory/217BA24450D1717633',
-    rating: 4.2,
-  },
-  {
-    id: 3,
-    name: 'bibimbap',
-    image: 'https://i.ytimg.com/vi/U_djLM9Z-qs/maxresdefault.jpg',
-    rating: 4.6,
-  },
-];
 
 export default class App extends React.Component {
   id = 0; // no need to render
@@ -40,15 +18,29 @@ export default class App extends React.Component {
         id: this.id++,
         ...formData,
         // name: formData.name,
-        // number: formData.number,
+        // phoneNumber: formData.phoneNumber,
       }),
     });
   };
 
+  handleUpdate = (id, newContact) => {
+    const {phoneBook} = this.state
+    this.setState({
+      phoneBook: phoneBook.map(
+        contact => {
+          if (contact.id === id)
+            return {id, ...newContact}
+          else
+            return contact
+        }
+      )
+    })
+  }
+
   handleDelete = (id) => {
     const {phoneBook} = this.state
     this.setState({
-      phoneBook: phoneBook.filter(info => info.id !== id)
+      phoneBook: phoneBook.filter(contact => contact.id !== id)
     })
   }
 
@@ -56,19 +48,12 @@ export default class App extends React.Component {
     return (
       <div className='App'>
         <header className='App-header'>
-          {/* {foodsILike.map((food) => (
-          <Foods
-            key={food.id}
-            name={food.name}
-            image={food.image}
-            rating={food.rating}
-          />
-        ))} */}
           <PhoneNumberForm onRegister={this.handleCreate} />
           {/* {JSON.stringify(this.state.phoneBook)} */}
           <PhoneBook 
             phoneBook={this.state.phoneBook} 
             onRemove={this.handleDelete}
+            onUpdate={this.handleUpdate}
           />
         </header>
       </div>

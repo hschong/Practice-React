@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class PhoneNumberForm extends Component {
   state = {
     name: '',
-    number: '',
+    phoneNumber: '',
   };
 
   handleChange = (e) => {
@@ -19,7 +19,7 @@ export default class PhoneNumberForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.onRegister(this.state);
-    this.setState({ name: '', number: '' });
+    this.setState({ name: '', phoneNumber: '' });
   };
 
   render() {
@@ -33,10 +33,10 @@ export default class PhoneNumberForm extends Component {
           value={this.state.name}
         />
         <input
-          name='number'
-          placeholder='number'
+          name='phoneNumber'
+          placeholder='phoneNumber'
           onChange={this.handleChange}
-          value={this.state.number}
+          value={this.state.phoneNumber}
         />
         <button type='submit'>register</button>
       </form>
