@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import PhoneNumberForm from './components/PhoneNumberForm';
+import ContactForm from './components/ContactForm';
 import PhoneBook from './components/PhoneBook';
 
 export default class App extends React.Component {
@@ -71,7 +71,7 @@ export default class App extends React.Component {
     return (
       <div className='App'>
         <header className='App-header'>
-          <PhoneNumberForm onRegister={this.handleCreate} />
+          <ContactForm onRegister={this.handleCreate} />
           <input 
             value={this.state.keyword}
             onChange={this.handleChange}

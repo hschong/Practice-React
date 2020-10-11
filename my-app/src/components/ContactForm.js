@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
-export default class PhoneNumberForm extends Component {
+export default class ContactForm extends Component {
+  // defaultInput = null 
+  defaultInput = React.createRef() 
+  
   state = {
     name: '',
     phoneNumber: '',
@@ -20,17 +23,21 @@ export default class PhoneNumberForm extends Component {
     e.preventDefault();
     this.props.onRegister(this.state);
     this.setState({ name: '', phoneNumber: '' });
+    // this.defaultInput.focus();
+    this.defaultInput.current.focus();
   };
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <p>PhoneNumberForm</p>
+        <p>ContactForm</p>
         <input
           name='name'
           placeholder='name'
           onChange={this.handleChange}
           value={this.state.name}
+          // ref={ref => this.defaultInput = ref}
+          ref={this.defaultInput}
         />
         <input
           name='phoneNumber'
