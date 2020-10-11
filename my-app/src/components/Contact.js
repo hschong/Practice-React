@@ -7,6 +7,14 @@ export default class Contact extends Component {
         phoneNumber: ''
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        if (this.state !== nextState) {
+            return true
+        }
+        return this.props.contact !== nextProps.contact
+    }
+    
+
     handleRemove = () => {
         const {contact, onRemove} = this.props
         onRemove(contact.id)
@@ -49,6 +57,8 @@ export default class Contact extends Component {
             padding: '8px',
             margin: '8px',
         }
+
+        console.log(name)
 
         return (
             <div style={style}>

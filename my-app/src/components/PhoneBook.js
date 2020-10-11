@@ -8,6 +8,7 @@ export default class PhoneBook extends Component {
 
     render() {
         const {phoneBook, onRemove, onUpdate} = this.props
+        console.log('rendering list')
         const list = phoneBook.map( e => (
             <Contact 
                 onRemove={onRemove}
