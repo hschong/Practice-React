@@ -25,7 +25,14 @@ export default class App extends React.Component {
         phoneNumber: '010-0000-0002' 
       },
     ],
+    keyword: ''
   };
+
+  handleChange = (e) => {
+    this.setState({
+      keyword: e.target.value
+    })
+  }
 
   handleCreate = (formData) => {
     const { phoneBook } = this.state;
@@ -65,9 +72,15 @@ export default class App extends React.Component {
       <div className='App'>
         <header className='App-header'>
           <PhoneNumberForm onRegister={this.handleCreate} />
-          {/* {JSON.stringify(this.state.phoneBook)} */}
+          <input 
+            value={this.state.keyword}
+            onChange={this.handleChange}
+            placeholder='Search...'
+          />
           <PhoneBook 
-            phoneBook={this.state.phoneBook} 
+            phoneBook={this.state.phoneBook.filter(
+              contact => contact.name.indexOf(this.state.keyword) > -1
+            )} 
             onRemove={this.handleDelete}
             onUpdate={this.handleUpdate}
           />
