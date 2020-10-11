@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 export default class ContactForm extends Component {
-  // defaultInput = null 
-  defaultInput = React.createRef() 
-  
+  // defaultInput = null
+  defaultInput = React.createRef();
+
   state = {
     name: '',
     phoneNumber: '',
@@ -12,10 +12,10 @@ export default class ContactForm extends Component {
   handleChange = (e) => {
     this.setState({
       // append the new value to the array
-      [e.target.name]: e.target.value, 
-      
+      [e.target.name]: e.target.value,
+
       // replace the previous value with the new value
-      // e.target.name: e.target.value 
+      // e.target.name: e.target.value
     });
   };
 
